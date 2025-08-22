@@ -866,7 +866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: {fileID: 384323431}
   txtPila: {fileID: 1998464236}
-  eliminado1: {fileID: 0}
+  eliminado1: {fileID: 1796788156}
 --- !u!4 &505511714
 Transform:
   m_ObjectHideFlags: 0
@@ -1609,7 +1609,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1149549818}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 505511713}
+        m_TargetAssemblyTypeName: PilaTextos, Assembly-CSharp
+        m_MethodName: Clear
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1149549818
 MonoBehaviour:
   m_ObjectHideFlags: 0

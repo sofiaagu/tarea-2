@@ -10,13 +10,11 @@ public class PilaTextos : MonoBehaviour
     public TMP_Text txtPila;   
     public TMP_Text eliminado1; 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        ActualizarVista();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -42,19 +40,16 @@ public class PilaTextos : MonoBehaviour
 
      public string PeekString()
     {
-        string cima = PilaNombres.Count > 0 ? PilaNombres.Peek() : "Pila vacía";
-        Debug.Log("Cima de la pila: " + cima);
+      string cima = PilaNombres.Count > 0 ? PilaNombres.Peek() : "Pila vacía";
+         eliminado1.text = "la cima es: " + cima;
         return cima;
     }
 
     public string PopString()
     {
         string eliminado = PilaNombres.Count > 0 ? PilaNombres.Pop() : "Pila vacía";
-        eliminado1.text = "Pila:\n";
-            foreach (string nombre in PilaNombres)
-                {
-                eliminado1.text += nombre + "\n";
-            }
+        eliminado1.text = "Último eliminado: " + eliminado;
+        ActualizarVista();
         return eliminado;
     }
 
@@ -68,11 +63,19 @@ public class PilaTextos : MonoBehaviour
         PopString();
     }
     
-    public void ClearStack()
+    public void Clear()
     {
-    PilaNombres.Clear();
-    Debug.Log("La pila fue vaciada.");
+     PilaNombres.Clear();
+        eliminado1.text = "La pila fue vaciada.";
+        ActualizarVista();
     }
 
-    
+    private void ActualizarVista()
+    {
+        txtPila.text = "Pila:\n";
+        foreach (string nombre in PilaNombres)
+        {
+            txtPila.text += nombre + "\n";
+        }
+    }
 }
