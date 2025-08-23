@@ -65,7 +65,7 @@ public class PilaTextos : MonoBehaviour
     
     public void Clear()
     {
-     PilaNombres.Clear();
+        PilaNombres.Clear();
         eliminado1.text = "La pila fue vaciada.";
         ActualizarVista();
     }
