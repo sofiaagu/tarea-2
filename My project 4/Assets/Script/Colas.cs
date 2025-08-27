@@ -12,12 +12,12 @@ public class Colas : MonoBehaviour
     public TMP_Text txtCola; 
     public TMP_Text Cola;    
 
-    public void Enqueue()
+     public void Enqueue()
     {
         Persona nuevaPersona = new Persona(Nombre.text, Mail.text, Direccion.text);
         cola.Enqueue(nuevaPersona);
         MostrarCola();
-        Cola.text = "Persona " + nuevaPersona;
+        Cola.text = "Se agreg√≥: " + nuevaPersona.ToString();
     }
 
     public void StringDequeue()
@@ -25,12 +25,12 @@ public class Colas : MonoBehaviour
         if (cola.Count > 0)
         {
             Persona eliminado = cola.Dequeue();
-            Cola.text = "Eliminado: " + eliminado;
+            Cola.text = "Eliminado: " + eliminado.ToString();
             MostrarCola();
         }
         else
         {
-            Cola.text = "La cola est· vacÌa";
+            Cola.text = "La cola est√° vac√≠a";
         }
     }
 
@@ -39,11 +39,11 @@ public class Colas : MonoBehaviour
         if (cola.Count > 0)
         {
             Persona primero = cola.Peek();
-            Cola.text = "El primero en la cola es: " + primero;
+            Cola.text = "El primero en la cola es: " + primero.ToString();
         }
         else
         {
-            Cola.text = "La cola est· vacÌa";
+            Cola.text = "La cola est√° vac√≠a";
         }
     }
 
@@ -52,16 +52,17 @@ public class Colas : MonoBehaviour
         txtCola.text = "Cola:\n";
         foreach (Persona persona in cola) 
         {
-            txtCola.text += persona.Nombre + "\n"; 
+            txtCola.text += persona.ToString() + "\n"; 
         }
     }
 
     public void Clear()
     {
         cola.Clear();
-        Cola.text = "La pila fue vaciada.";
+        Cola.text = "La cola fue vaciada.";
         MostrarCola();
     }
+
 
     public void ButtonDequeue()
     {
@@ -89,5 +90,9 @@ public class Persona
         Mail = mail;
         Direccion = direccion;
     }
-
+ 
+    public override string ToString()
+    {
+        return $"{Nombre} | {Mail} | {Direccion}";
+    }
 }
